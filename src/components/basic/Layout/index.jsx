@@ -5,6 +5,11 @@ const Grid = styled.div`
   display: grid;
   grid-template-rows: 0.25fr 3fr 0.25fr;
   height: 100vh;
+
+  #main {
+    width: 40.25rem;
+    justify-self: center;
+  }
 `;
 
 const Layout = ({ children }) => (
