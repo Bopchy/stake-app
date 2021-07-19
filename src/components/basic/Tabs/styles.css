@@ -1,0 +1,13 @@
+@import "react-tabs/style/react-tabs.css";
+
+.tab-menu-body {
+    max-width: 600px;
+}
+
+.tab-menu-body-selected {
+    border-bottom: 1px solid purple;
+}
+
+.tab-menu-tab {
+    margin: 10px 0;
+}
