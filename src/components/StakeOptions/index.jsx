@@ -6,6 +6,7 @@ import XButtons from "./XButtons";
 const OptionWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  margin-bottom: 2.1875rem;
 `;
 
 const StakeOptions = ({}) => {
