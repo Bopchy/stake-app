@@ -1,63 +1,32 @@
-import React, { Fragment } from "react";
+import React from "react";
 import styled from "styled-components";
+import TokenWrapper from "./TokenWrapper";
+import StakeBalance from "./StakeBalance";
+
+// Images
+import RevaultLogo from "../../assets/images/Revault_logo.png"; // to be retrived via API
 
 const Wrapper = styled.div`
-  width: 440px;
-  display: inline-block;
-`;
-
-const IconWrapper = styled.div`
+  width: 100%;
+  height: 6.875rem;
   display: flex;
+  margin-bottom: 2.1875rem;
+  box-sizing: border-box;
 `;
 
-const BalanceWrapper = styled.div`
-  display: flex;
-`;
-
-const PercentageWrapper = styled.span`
-  display: flex;
-  justify-content: space-between;
-`;
-
-const StakeBalance = ({ name, stakeAmount }) => {
-  return (
-    <Fragment>
-      <p>GET</p>
-      <p>{name} Balance</p>
-      <input name="stake-amount" />
-      <p>${stakeAmount}</p>
-    </Fragment>
-  );
-};
-
-const UnstakeBalance = ({ name, stakeAmount }) => {
-  return (
-    <Fragment>
-      <PercentageWrapper>
-        <button>10%</button>
-        <button>25%</button>
-        <button>50%</button>
-        <button>75%</button>
-        <button>100%</button>
-      </PercentageWrapper>
-      <input name="unstake-amount" />
-      <p>${stakeAmount}</p>
-    </Fragment>
-  );
-};
-
-const BalanceComponent = ({ name }) => {
+const BalanceComponent = ({
+  isStake = true,
+  tokenImage = RevaultLogo,
+  name = "REVA",
+}) => {
   return (
     <Wrapper>
-      <IconWrapper>
-        <span>Stake {name}</span>
-      </IconWrapper>
-      <BalanceWrapper>
-        {
-          // check whether stake or unstake, then render right component
-          <StakeBalance name={name} />
-        }
-      </BalanceWrapper>
+      <TokenWrapper
+        action={isStake ? "Stake" : "UnStake"}
+        tokenImage={tokenImage}
+        name={name}
+      />
+      <StakeBalance isStake={isStake} name={name} />
     </Wrapper>
   );
 };
