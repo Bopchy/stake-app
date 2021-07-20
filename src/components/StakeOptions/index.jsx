@@ -1,44 +1,18 @@
 import React from "react";
 import styled from "styled-components";
-import Button from "../basic/Button";
+import XDetails from "./XDetails";
+import XButtons from "./XButtons";
 
 const OptionWrapper = styled.div`
   display: flex;
+  flex-direction: column;
 `;
 
-const OptionContainer = styled.div``;
-
-const OptionSpecs = styled.span`
-  display: flex;
-`;
-
-const StakeOptions = ({
-  apy = "120.3%",
-  powerShare = "silver",
-  daysLock = "7",
-}) => {
+const StakeOptions = ({}) => {
   return (
     <OptionWrapper>
-      <OptionContainer>
-        <OptionSpecs>
-          <span>{apy}</span>
-          <p>REVA APY</p>
-        </OptionSpecs>
-        <OptionSpecs>
-          <span>{powerShare}</span>
-          <p>POWER SHARE</p>
-        </OptionSpecs>
-        <OptionSpecs>
-          <span>{daysLock}</span>
-          <p>DAY LOCK</p>
-        </OptionSpecs>
-      </OptionContainer>
-      <OptionContainer>
-        <Button>X1</Button>
-        <Button>X2</Button>
-        <Button>X3</Button>
-        <Button>X4</Button>
-      </OptionContainer>
+      <XDetails />
+      <XButtons />
     </OptionWrapper>
   );
 };

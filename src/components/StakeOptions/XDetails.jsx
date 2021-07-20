@@ -10,10 +10,10 @@ const Wrapper = styled.div`
   margin: 0 0 1rem 0;
 `;
 
-const Divider = styled.hr`
+const Divider = styled.span`
   transform: rotate(180deg);
   height: 2.5rem;
-  color: ${GRAYSCALE_BODY};
+  border: 1px solid ${GRAYSCALE_BODY};
 `;
 
 const OptionSpecs = styled.span`
