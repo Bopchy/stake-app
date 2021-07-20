@@ -6,3 +6,4 @@ export const PRIMARY_INACTIVE = "#220A56";
 export const BORDER_INACTIVE = "rgba(61, 0, 162, 0.4)";
 export const PRIMARY_DEFAULT = "#5F2EEA";
 export const GRAYSCALE_TITLE_ACTIVE = "#14162B";
+export const PANEL_DARK = "#171A30";
