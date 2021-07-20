@@ -3,6 +3,7 @@ import {
   POPPINS_BOLD,
   POPPINS_REGULAR,
   POPPINS_SEMI_BOLD,
+  POPPINS_SEMI_BOLDER,
 } from "../../../utils/fonts";
 import { OFF_WHITE, GRAYSCALE_LABEL } from "../../../utils/colors";
 
@@ -33,6 +34,14 @@ export const RegularText = styled.p`
   line-height: 1.5rem;
   text-align: center;
   margin: 0 0 1.25rem 0;
+`;
+
+export const MediumText = styled.p`
+  ${POPPINS_SEMI_BOLDER}
+  color: ${OFF_WHITE};
+  font-size: 1rem;
+  line-height: 1.75rem;
+  margin: 0;
 `;
 
 export const Exp = styled.p`
