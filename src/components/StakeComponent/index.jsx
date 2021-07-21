@@ -1,16 +1,25 @@
 import React from "react";
+import styled from "styled-components";
+import { H6Header } from "../basic/Text";
 import StakeOptions from "../StakeOptions";
 import BalanceComponent from "../BalanceComponent";
 import TimerComponent from "../TimerComponent";
 
-const StakeComponent = ({}) => {
+const Wrapper = styled.div`
+  display: flex;
+  width: 27.5rem;
+  flex-direction: column;
+  margin: 0 auto;
+`;
+
+const StakeComponent = ({ isStake }) => {
   return (
-    <>
-      <h2>Select you boost power</h2>
+    <Wrapper>
+      <H6Header>Select your boost power</H6Header>
       <StakeOptions />
-      <BalanceComponent />
+      <BalanceComponent isStake={isStake} />
       <TimerComponent />
-    </>
+    </Wrapper>
   );
 };
 
