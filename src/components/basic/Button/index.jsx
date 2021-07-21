@@ -1,11 +1,13 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components/macro";
 import {
   PRIMARY_DARK,
   PRIMARY_INACTIVE,
   BORDER_INACTIVE,
   PRIMARY_DEFAULT,
   OFF_WHITE,
+  BUTTON_DISABLED,
+  GRAYSCALE_LABEL,
 } from "../../../utils/colors";
 import { POPPINS_SEMI_BOLDER } from "../../../utils/fonts";
 
@@ -17,7 +19,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const ButtonComponent = styled.button`
+const buttonBase = css`
   ${POPPINS_SEMI_BOLDER}
   color: ${PRIMARY_DEFAULT};
   font-size: 0.75rem;
@@ -38,8 +40,22 @@ const ButtonComponent = styled.button`
     background-color: ${PRIMARY_DARK};
     color: ${OFF_WHITE};
   }
+`;
 
-  .submit-button {
+const submitButton = css`
+  ${buttonBase}
+  background-color: ${PRIMARY_DEFAULT};
+  color: ${OFF_WHITE};
+  font-size: 0.875rem;
+  line-height: 1.625rem;
+  width: 13.3125rem;
+  height: 3.75rem;
+  position: unset;
+
+  &:disabled {
+    background-color: ${BUTTON_DISABLED};
+    color: ${PRIMARY_DEFAULT};
+    border: 0.0625rem solid ${GRAYSCALE_LABEL};
   }
 `;
 
@@ -54,17 +70,32 @@ const ActiveStyleTransform = styled.span`
   position: absolute;
 `;
 
-const Button = ({ children, onClick, type = "button", className, ...rest }) => (
+const getButtonStyles = (variant) => {
+  if (variant === "xoption") {
+    return buttonBase;
+  }
+  return submitButton;
+};
+
+const Button = ({
+  children,
+  onClick,
+  type = "button",
+  variant,
+  className,
+  ...rest
+}) => (
   <Wrapper>
-    <ButtonComponent
+    <button
       onClick={onClick}
       type={type}
+      css={getButtonStyles(variant)}
       className={className}
       {...rest}
     >
       {children}
-    </ButtonComponent>
-    <ActiveStyleTransform />
+    </button>
+    {variant === "xoption" && <ActiveStyleTransform />}
   </Wrapper>
 );
 

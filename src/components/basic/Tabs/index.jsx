@@ -11,8 +11,8 @@ const TabMenu = ({ tabGroup, panelGroup }) => {
           <TabComponent key={tab}>{tab}</TabComponent>
         ))}
       </TabListComponent>
-      {panelGroup.map((panel) => (
-        <TabPanel>{panel}</TabPanel>
+      {panelGroup.map((panel, index) => (
+        <TabPanel key={index}>{panel}</TabPanel>
       ))}
     </Tabs>
   );

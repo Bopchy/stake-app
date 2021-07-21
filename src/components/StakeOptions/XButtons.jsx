@@ -31,10 +31,10 @@ const XButtons = () => {
     <Wrapper>
       <Hr />
       <ButtonContainer>
-        <Button>X1</Button>
-        <Button>X2</Button>
-        <Button>X3</Button>
-        <Button>X4</Button>
+        <Button variant="xoption">X1</Button>
+        <Button variant="xoption">X2</Button>
+        <Button variant="xoption">X3</Button>
+        <Button variant="xoption">X4</Button>
       </ButtonContainer>
     </Wrapper>
   );

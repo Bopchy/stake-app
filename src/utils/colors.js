@@ -13,3 +13,7 @@ export const GRAYSCALE_LABEL = "#6E7691";
 export const GRAYSCALE_BODY = "#424B6D";
 export const GRAYSCALE_DARK = "#0E1121";
 export const GRAYSCALE_TITLE_ACTIVE = "#14162B";
+export const GRAYSCALE_LINE = "#D9DDE9";
+
+//Disabled
+export const BUTTON_DISABLED = "#09090E";
