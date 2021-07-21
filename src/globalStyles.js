@@ -45,7 +45,7 @@ const GlobalStyles = createGlobalStyle`
 
 body {
 	margin: 0;
-	background: #09090E;
+  background: #09090E;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }

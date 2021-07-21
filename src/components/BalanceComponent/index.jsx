@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 `;
 
 const BalanceComponent = ({
-  isStake = true,
+  isStake,
   tokenImage = RevaultLogo,
   name = "REVA",
 }) => {
