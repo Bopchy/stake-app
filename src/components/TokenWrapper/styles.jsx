@@ -1,9 +1,8 @@
-import React from "react";
 import styled from "styled-components";
-import { RegularText, MediumText } from "../basic/Text";
+import { RegularText } from "../basic/Text";
 import { GRAYSCALE_TITLE_ACTIVE } from "../../utils/colors";
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   display: flex;
   width: 11.875rem;
   flex-direction: column;
@@ -13,13 +12,13 @@ const Wrapper = styled.div`
   border-radius: 0.625rem 0 0 0.625rem;
 `;
 
-const Title = styled(RegularText)`
+export const Title = styled(RegularText)`
   text-align: left;
   margin: 0 0 0.375rem 0;
   text-transform: capitalize;
 `;
 
-const ImageWrapper = styled.span`
+export const ImageWrapper = styled.span`
   display: flex;
   align-items: center;
   gap: 0.3125rem;
@@ -30,17 +29,3 @@ const ImageWrapper = styled.span`
     border-radius: 0.625rem;
   }
 `;
-
-const TokenWrapper = ({ action, tokenImage, name }) => (
-  <Wrapper>
-    <Title>
-      {action} {name}
-    </Title>
-    <ImageWrapper>
-      <img src={tokenImage} alt="token" />
-      <MediumText>{name}</MediumText>
-    </ImageWrapper>
-  </Wrapper>
-);
-
-export default TokenWrapper;

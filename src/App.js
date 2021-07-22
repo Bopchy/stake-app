@@ -1,7 +1,7 @@
-import StakeContainer from "./containers/StakeContainer";
+import Staking from "./screens/Staking";
 
 function App() {
-  return <StakeContainer />;
+  return <Staking />;
 }
 
 export default App;

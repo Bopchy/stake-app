@@ -2,7 +2,7 @@ import React from "react";
 import { H3Header, RegularText } from "../../components/basic/Text";
 import TabMenu from "../../components/basic/Tabs";
 import Layout from "../../components/basic/Layout";
-import StakeComponent from "../../components/StakeComponent";
+import StakeBalanceContainer from "../../containers/StakeBalance";
 
 const StakeContainer = ({ name = "REVA" }) => {
   return (
@@ -13,7 +13,10 @@ const StakeContainer = ({ name = "REVA" }) => {
       </RegularText>
       <TabMenu
         tabGroup={["Stake", "Unstake"]}
-        panelGroup={[<StakeComponent isStake />, <StakeComponent />]}
+        panelGroup={[
+          <StakeBalanceContainer isStake />,
+          <StakeBalanceContainer />,
+        ]}
       />
     </Layout>
   );

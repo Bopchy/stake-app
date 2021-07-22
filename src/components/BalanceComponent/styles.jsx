@@ -1,6 +1,5 @@
-import React from "react";
 import styled from "styled-components";
-import { Exp, RegularText } from "../basic/Text";
+import { Exp } from "../basic/Text";
 import {
   PRIMARY_DEFAULT,
   GRAYSCALE_LABEL,
@@ -9,7 +8,15 @@ import {
 } from "../../utils/colors";
 import { POPPINS_REGULAR, POPPINS_SEMI_BOLDER } from "../../utils/fonts";
 
-const BalanceWrapper = styled.div`
+export const Wrapper = styled.div`
+  width: 100%;
+  height: 6.875rem;
+  display: flex;
+  margin-bottom: 2.1875rem;
+  box-sizing: border-box;
+`;
+
+export const BalanceWrapper = styled.div`
   background-color: ${PANEL_DARK};
   display: flex;
   flex-direction: column;
@@ -25,7 +32,7 @@ const BalanceWrapper = styled.div`
   }
 `;
 
-const Header = styled(Exp)`
+export const Header = styled(Exp)`
   letter-spacing: 0.015625rem;
   line-height: 1.25rem;
   display: flex;
@@ -43,7 +50,7 @@ const Header = styled(Exp)`
   }
 `;
 
-const Input = styled.input`
+export const Input = styled.input`
   ${POPPINS_REGULAR}
   font-size: 1.25rem;
   line-height: 2rem;
@@ -54,12 +61,12 @@ const Input = styled.input`
   text-align: right;
 `;
 
-const UnstakeOptions = styled.span`
+export const UnstakeOptions = styled.span`
   display: flex;
   justify-content: space-between;
 `;
 
-const Button = styled.button.attrs(() => ({
+export const Button = styled.button.attrs(() => ({
   type: "button",
 }))`
   ${POPPINS_SEMI_BOLDER}
@@ -74,36 +81,3 @@ const Button = styled.button.attrs(() => ({
   letter-spacing: 0.015625rem;
   cursor: pointer;
 `;
-
-const StakeBalance = ({
-  isStake,
-  name = "REVA",
-  stakeAmount = "0.00",
-  balanceAmount = "0.00",
-}) => {
-  return (
-    <BalanceWrapper>
-      {isStake ? (
-        <Header>
-          <span className="action">GET</span>
-          <span className="balance">
-            {name} Balance: {balanceAmount}
-          </span>
-        </Header>
-      ) : (
-        <UnstakeOptions>
-          <Button>10%</Button>
-          <Button>25%</Button>
-          <Button>50%</Button>
-          <Button>75%</Button>
-          <Button>100%</Button>
-        </UnstakeOptions>
-      )}
-
-      <Input name="stake-amount" type="text" value="0.00" />
-      <RegularText className="stakeAmount">${stakeAmount}</RegularText>
-    </BalanceWrapper>
-  );
-};
-
-export default StakeBalance;

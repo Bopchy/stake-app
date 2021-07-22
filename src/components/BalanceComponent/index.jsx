@@ -1,24 +1,25 @@
 import React from "react";
-import styled from "styled-components";
-import TokenWrapper from "./TokenWrapper";
-import StakeBalance from "./StakeBalance";
+import { RegularText } from "../basic/Text";
+import TokenWrapper from "../TokenWrapper";
+import {
+  Wrapper,
+  BalanceWrapper,
+  Header,
+  Input,
+  UnstakeOptions,
+  Button,
+} from "./styles";
+import RevaultLogo from "../../assets/icons/revault_logo.svg";
 
-// Images
-import RevaultLogo from "../../assets/icons/revault_logo.svg"; // to be retrived via API
-
-const Wrapper = styled.div`
-  width: 100%;
-  height: 6.875rem;
-  display: flex;
-  margin-bottom: 2.1875rem;
-  box-sizing: border-box;
-`;
-
-const BalanceComponent = ({
+const StakeBalance = ({
   isStake,
-  tokenImage = RevaultLogo,
   name = "REVA",
+  stakeAmount = "0.00",
+  balanceAmount = "0.00",
+  tokenImage = RevaultLogo,
 }) => {
+  const unstakePercentages = [10, 25, 50, 75, 100];
+
   return (
     <Wrapper>
       <TokenWrapper
@@ -26,9 +27,27 @@ const BalanceComponent = ({
         tokenImage={tokenImage}
         name={name}
       />
-      <StakeBalance isStake={isStake} name={name} />
+      <BalanceWrapper>
+        {isStake ? (
+          <Header>
+            <span className="action">GET</span>
+            <span className="balance">
+              {name} Balance: {balanceAmount}
+            </span>
+          </Header>
+        ) : (
+          <UnstakeOptions>
+            {unstakePercentages.map((percentage) => (
+              <Button>{percentage}%</Button>
+            ))}
+          </UnstakeOptions>
+        )}
+
+        <Input name="stake-amount" type="text" value="0.00" />
+        <RegularText className="stakeAmount">${stakeAmount}</RegularText>
+      </BalanceWrapper>
     </Wrapper>
   );
 };
 
-export default BalanceComponent;
+export default StakeBalance;
