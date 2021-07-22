@@ -4,7 +4,7 @@ import TokenWrapper from "./TokenWrapper";
 import StakeBalance from "./StakeBalance";
 
 // Images
-import RevaultLogo from "../../assets/images/Revault_logo.png"; // to be retrived via API
+import RevaultLogo from "../../assets/icons/revault_logo.svg"; // to be retrived via API
 
 const Wrapper = styled.div`
   width: 100%;
