@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import StakeBoostOptions from "../StakeBoostOptions";
+import BoostOptionButtons from "../../components/BoostOptionButtons";
+import BoostOptionDetails from "../../components/BoostOptionDetails";
 import { H6Header } from "../../components/basic/Text";
 import BalanceComponent from "../../components/BalanceComponent";
 import TimerComponent from "../../components/TimerComponent";
@@ -18,14 +19,15 @@ const ButtonWrapper = styled.div`
   flex-direction: row;
   gap: 0.625rem;
 `;
-// receives isStake from screen
-const StakeComponent = ({ isStake }) => {
+
+const StakingContainer = ({ isStake }) => {
   return (
     <Wrapper>
       <H6Header>
         {isStake ? `Select your boost power` : `Selected Boost power`}
       </H6Header>
-      <StakeBoostOptions />
+      <BoostOptionDetails />
+      <BoostOptionButtons />
       <BalanceComponent isStake={isStake} />
       <TimerComponent />
       <ButtonWrapper>
@@ -36,4 +38,4 @@ const StakeComponent = ({ isStake }) => {
   );
 };
 
-export default StakeComponent;
+export default StakingContainer;
