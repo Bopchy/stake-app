@@ -3,14 +3,14 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import reportWebVitals from "./reportWebVitals";
 import GlobalStyles from "./globalStyles";
-import App from "./App";
+import Staking from "./screens/Staking";
 import store from "../src/state/store";
 
 ReactDOM.render(
   <React.StrictMode>
     <GlobalStyles />
     <Provider store={store}>
-      <App />
+      <Staking />
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")
