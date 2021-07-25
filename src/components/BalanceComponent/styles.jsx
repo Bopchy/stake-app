@@ -5,6 +5,9 @@ import {
   GRAYSCALE_LABEL,
   GRAYSCALE_BODY,
   PANEL_DARK,
+  ERROR_DEFAULT,
+  ERROR_BORDER,
+  ERROR_BACKGROUND,
 } from "../../utils/colors";
 import { POPPINS_REGULAR, POPPINS_SEMI_BOLDER } from "../../utils/fonts";
 
@@ -14,6 +17,23 @@ export const Wrapper = styled.div`
   display: flex;
   margin-bottom: 2.1875rem;
   box-sizing: border-box;
+
+  &.error {
+    border: 0.0625rem solid ${ERROR_BORDER};
+    border-radius: 0.625rem;
+
+    #balance-wrapper {
+      background: ${ERROR_BACKGROUND};
+
+      input {
+        color: ${ERROR_DEFAULT};
+      }
+
+      .stakeAmount {
+        color: ${ERROR_DEFAULT};
+      }
+    }
+  }
 `;
 
 export const BalanceWrapper = styled.div`
@@ -59,6 +79,13 @@ export const Input = styled.input`
   border: none;
   background-color: transparent;
   text-align: right;
+
+  ::placeholder {
+    ${POPPINS_REGULAR}
+    font-size: 1.25rem;
+    line-height: 2rem;
+    color: ${GRAYSCALE_BODY};
+  }
 `;
 
 export const UnstakeOptions = styled.span`

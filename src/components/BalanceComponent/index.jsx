@@ -1,7 +1,7 @@
 import React from "react";
 import { RegularText } from "../basic/Text";
 import TokenWrapper from "../TokenWrapper";
-import getCurrencySymbol from "../../utils/getCurrencySymbol";
+import getCurrencySymbol from "../../utils/helpers";
 import {
   Wrapper,
   BalanceWrapper,
@@ -14,21 +14,25 @@ import {
 const StakeBalance = ({
   isStake,
   name,
-  stakeAmount = "0.00",
   balanceAmount,
   tokenImage,
   currency = "USD",
+  stakedAmount,
+  onChange,
+  pricePerToken,
 }) => {
   const unstakePercentages = [10, 25, 50, 75, 100];
+  const errorClass = stakedAmount > balanceAmount ? "error" : "";
+  const stakedAmountCashValue = balanceAmount * pricePerToken;
 
   return (
-    <Wrapper>
+    <Wrapper className={errorClass}>
       <TokenWrapper
         action={isStake ? "Stake" : "UnStake"}
         tokenImage={tokenImage}
         name={name}
       />
-      <BalanceWrapper>
+      <BalanceWrapper id="balance-wrapper">
         {isStake ? (
           <Header>
             <span className="action">GET</span>
@@ -43,10 +47,16 @@ const StakeBalance = ({
             ))}
           </UnstakeOptions>
         )}
-        <Input name="stake-amount" type="text" value="0.00" />
+        <Input
+          type="text"
+          name="stake-amount"
+          value={stakedAmount}
+          onChange={onChange}
+          placeholder="0.00"
+        />
         <RegularText className="stakeAmount">
           {getCurrencySymbol(currency)}
-          {stakeAmount}
+          {stakedAmountCashValue}
         </RegularText>
       </BalanceWrapper>
     </Wrapper>

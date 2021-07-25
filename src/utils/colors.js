@@ -17,3 +17,8 @@ export const GRAYSCALE_LINE = "#D9DDE9";
 
 //Disabled
 export const BUTTON_DISABLED = "#09090E";
+
+// Error
+export const ERROR_DEFAULT = "#ED2E7E";
+export const ERROR_BORDER = "#C30052";
+export const ERROR_BACKGROUND = "rgba(195, 0, 82, 0.1)";
