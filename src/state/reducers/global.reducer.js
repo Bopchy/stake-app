@@ -12,8 +12,9 @@ const globalReducer = (state = initialState, action) => {
     case "GET_TOKEN_VALUE":
       return {
         ...state,
-        value: action.payload.value,
-        currency: action.payload.currency,
+        value: action.payload.data.value,
+        currency: action.payload.data.currency,
+        isLoading: false,
       };
     case "GET_TOKEN_VALUE_ERR":
       return {
@@ -21,7 +22,7 @@ const globalReducer = (state = initialState, action) => {
         error: action.payload.data,
       };
     default:
-      break;
+      return state;
   }
 };
 

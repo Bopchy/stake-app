@@ -1,6 +1,7 @@
 import React from "react";
 import { RegularText } from "../basic/Text";
 import TokenWrapper from "../TokenWrapper";
+import getCurrencySymbol from "../../utils/getCurrencySymbol";
 import {
   Wrapper,
   BalanceWrapper,
@@ -9,14 +10,14 @@ import {
   UnstakeOptions,
   Button,
 } from "./styles";
-import RevaultLogo from "../../assets/icons/revault_logo.svg";
 
 const StakeBalance = ({
   isStake,
-  name = "REVA",
+  name,
   stakeAmount = "0.00",
-  balanceAmount = "0.00",
-  tokenImage = RevaultLogo,
+  balanceAmount,
+  tokenImage,
+  currency = "USD",
 }) => {
   const unstakePercentages = [10, 25, 50, 75, 100];
 
@@ -42,9 +43,11 @@ const StakeBalance = ({
             ))}
           </UnstakeOptions>
         )}
-
         <Input name="stake-amount" type="text" value="0.00" />
-        <RegularText className="stakeAmount">${stakeAmount}</RegularText>
+        <RegularText className="stakeAmount">
+          {getCurrencySymbol(currency)}
+          {stakeAmount}
+        </RegularText>
       </BalanceWrapper>
     </Wrapper>
   );

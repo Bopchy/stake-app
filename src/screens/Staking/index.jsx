@@ -13,7 +13,10 @@ const Staking = ({ name = "REVA" }) => {
       </RegularText>
       <TabMenu
         tabGroup={["Stake", "Unstake"]}
-        panelGroup={[<StakingContainer isStake />, <StakingContainer />]}
+        panelGroup={[
+          <StakingContainer name={name} isStake />,
+          <StakingContainer name={name} />,
+        ]}
       />
     </Layout>
   );

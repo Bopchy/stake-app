@@ -1,12 +1,9 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Exp } from "../basic/Text";
 import { Wrapper, OptionSpecs, DetailQuantity, Divider } from "./styles";
 
-const BoostOptionDetails = ({
-  apy = "120.3%",
-  powerShare = "silver",
-  daysLock = "7",
-}) => {
+const BoostOptionDetails = ({ apy, powerShare, daysLock }) => {
   return (
     <Wrapper>
       <OptionSpecs>
@@ -21,10 +18,16 @@ const BoostOptionDetails = ({
       <Divider />
       <OptionSpecs>
         <DetailQuantity>{daysLock}</DetailQuantity>
-        <Exp>DAY LOCK</Exp>
+        <Exp>DAYS LOCK</Exp>
       </OptionSpecs>
     </Wrapper>
   );
+};
+
+BoostOptionDetails.defaultProps = {
+  apy: PropTypes.string.isRequired,
+  powerShare: PropTypes.string.isRequired,
+  daysLock: PropTypes.string.isRequired,
 };
 
 export default BoostOptionDetails;

@@ -7,10 +7,18 @@ const BoostOptionButtons = ({ onClick }) => {
     <Wrapper>
       <Hr />
       <ButtonContainer>
-        <Button variant="xoption">X1</Button>
-        <Button variant="xoption">X2</Button>
-        <Button variant="xoption">X3</Button>
-        <Button variant="xoption">X4</Button>
+        <Button variant="xoption" onClick={() => onClick(0)}>
+          X1
+        </Button>
+        <Button variant="xoption" onClick={() => onClick(1)}>
+          X2
+        </Button>
+        <Button variant="xoption" onClick={() => onClick(2)}>
+          X3
+        </Button>
+        <Button variant="xoption" onClick={() => onClick(3)}>
+          X4
+        </Button>
       </ButtonContainer>
     </Wrapper>
   );

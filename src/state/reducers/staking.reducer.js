@@ -12,6 +12,7 @@ const boostOptionsReducer = (state = initialBoostOptionsState, action) => {
       return {
         ...state,
         options: initialBoostOptionsState.options.concat(action.payload.data),
+        isLoading: false,
       };
     case "GET_BOOST_OPTIONS_ERR":
       return { ...state, error: action.payload.data };

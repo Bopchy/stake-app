@@ -12,7 +12,8 @@ const balanceReducer = (state = initialState, action) => {
     case "GET_BALANCE": {
       return {
         ...state,
-        balances: initialState.balances.concat(action.payload),
+        balances: initialState.balances.concat(action.payload.data),
+        isLoading: false,
       };
     }
     default:
