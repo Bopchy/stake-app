@@ -26,11 +26,6 @@ export const buttonBase = css`
   padding: 0.625rem;
   position: absolute;
   z-index: 10;
-
-  .selected {
-    background-color: ${PRIMARY_DARK};
-    color: ${OFF_WHITE};
-  }
 `;
 
 export const submitButton = css`
@@ -56,15 +51,4 @@ export const Wrapper = styled.div`
   button:active + span {
     transform: scale(1.3);
   }
-`;
-
-export const ActiveStyleTransform = styled.span`
-  background-color: ${BORDER_INACTIVE};
-  border: 0.0625rem solid transparent;
-  box-sizing: border-box;
-  border-radius: 0.625rem;
-  height: 2.5rem;
-  width: 3.0625rem;
-  opacity: 0.9;
-  position: absolute;
 `;

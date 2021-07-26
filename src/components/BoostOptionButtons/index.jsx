@@ -1,24 +1,26 @@
 import React from "react";
-import Button from "../basic/Button";
 import { Wrapper, Hr, ButtonContainer } from "./styles";
 
-const BoostOptionButtons = ({ onClick }) => {
+const BoostOptionButtons = ({ onChange, options }) => {
   return (
     <Wrapper>
       <Hr />
       <ButtonContainer>
-        <Button variant="xoption" onClick={() => onClick(0)}>
-          X1
-        </Button>
-        <Button variant="xoption" onClick={() => onClick(1)}>
-          X2
-        </Button>
-        <Button variant="xoption" onClick={() => onClick(2)}>
-          X3
-        </Button>
-        <Button variant="xoption" onClick={() => onClick(3)}>
-          X4
-        </Button>
+        {options.map((option, index) => {
+          return (
+            <div key={index}>
+              <input
+                type="radio"
+                id={`x${index + 1}`}
+                name="boost-options"
+                value={index}
+                onClick={() => onChange(index)}
+                defaultChecked={index === 0}
+              />
+              <label htmlFor={`x${index + 1}`}>{`x${index + 1}`}</label>
+            </div>
+          );
+        })}
       </ButtonContainer>
     </Wrapper>
   );

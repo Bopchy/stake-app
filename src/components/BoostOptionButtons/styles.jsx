@@ -1,5 +1,6 @@
-import styled from "styled-components";
-import { PRIMARY_DARK } from "../../utils/colors";
+import styled, { css } from "styled-components/macro";
+import { buttonBase } from "../../components/basic/Button/styles";
+import { PRIMARY_DARK, BORDER_INACTIVE, OFF_WHITE } from "../../utils/colors";
 
 export const Wrapper = styled.div`
   position: relative;
@@ -14,6 +15,27 @@ export const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;
   position: absolute;
+  box-sizing: border-box;
+  top: 25%;
+
+  label {
+    ${buttonBase}
+    padding: 10px 16.5px;
+    position: unset;
+    text-transform: uppercase;
+  }
+
+  input[type="radio"] {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+  }
+
+  input[type="radio"]:checked + label {
+    background-color: ${PRIMARY_DARK};
+    color: ${OFF_WHITE};
+    box-shadow: 0 0 0 5px ${BORDER_INACTIVE};
+  }
 `;
 
 export const Hr = styled.span`

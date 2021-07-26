@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { GRAYSCALE_BODY } from "../../utils/colors";
+import { GRAYSCALE_BODY, OFF_WHITE } from "../../utils/colors";
 import { RegularText } from "../basic/Text";
 
 export const Wrapper = styled.div`
@@ -24,4 +24,5 @@ export const DetailQuantity = styled(RegularText)`
   line-height: 2.4375rem;
   margin: 0;
   text-transform: capitalize;
+  color: ${OFF_WHITE};
 `;
