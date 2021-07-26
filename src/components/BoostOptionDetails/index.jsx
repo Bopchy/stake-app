@@ -3,7 +3,9 @@ import PropTypes from "prop-types";
 import { Exp } from "../basic/Text";
 import { Wrapper, OptionSpecs, DetailQuantity, Divider } from "./styles";
 
-const BoostOptionDetails = ({ apy, powerShare, daysLock }) => {
+const BoostOptionDetails = ({ options, selectedOptionIndex }) => {
+  const { apy, powerShare, daysLock } = options[selectedOptionIndex];
+
   return (
     <Wrapper>
       <OptionSpecs>

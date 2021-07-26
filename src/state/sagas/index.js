@@ -1,6 +1,6 @@
 import axios from "axios";
 import { all, put, takeLatest } from "redux-saga/effects";
-import { getTokenValue, getTokenValueErr } from "../actions/global.actions";
+import { getTokenValues, getTokenValuesErr } from "../actions/global.actions";
 import { getBalance, getBalanceErr } from "../actions/balance.actions";
 import {
   getBoostOptions,
@@ -12,9 +12,9 @@ function* fetchTokenValue() {
     const tokenValue = yield axios.get(
       "https://api.npoint.io/25aaf62216076cac55a6"
     );
-    yield put(getTokenValue(tokenValue));
+    yield put(getTokenValues(tokenValue));
   } catch (error) {
-    yield put(getTokenValueErr(error));
+    yield put(getTokenValuesErr(error));
   }
 }
 

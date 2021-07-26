@@ -34,7 +34,7 @@ const Bar = styled.div`
 const ProgressBar = ({ timeLimit }) => {
   return (
     <Bar>
-      <progress value="10" max="100"></progress>
+      <progress value="3" max="100"></progress>
     </Bar>
   );
 };
