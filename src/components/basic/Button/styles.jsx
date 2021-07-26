@@ -1,6 +1,5 @@
 import styled, { css } from "styled-components/macro";
 import {
-  PRIMARY_DARK,
   PRIMARY_INACTIVE,
   BORDER_INACTIVE,
   PRIMARY_DEFAULT,

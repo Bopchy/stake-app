@@ -51,11 +51,21 @@ const GlobalStyles = createGlobalStyle`
     url(${Poppin700Woff})
 }
 
+html {
+  height: 100vh;
+}
+
 body {
-	margin: 0;
+  margin: 0;
   background: #09090E;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+div#root {
+  height: 100%;
+  padding: 0.625rem;
+  box-sizing: border-box;
 }
 `;
 
