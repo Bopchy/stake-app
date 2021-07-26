@@ -1,5 +1,6 @@
 import React from "react";
-import { css } from "styled-components/macro"; // eslint-disable-no-unused-vars
+// eslint-disable-next-line
+import { css } from "styled-components/macro";
 import { submitButton, Wrapper } from "./styles";
 
 const Button = ({ children, onClick, type = "button", className, ...rest }) => (
