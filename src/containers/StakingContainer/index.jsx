@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import styled from "styled-components";
 import BalanceComponent from "../../components/BalanceComponent";
 import BoostOptionButtons from "../../components/BoostOptionButtons";
 import BoostOptionDetails from "../../components/BoostOptionDetails";
@@ -11,19 +10,6 @@ import RevaultLogo from "../../assets/icons/revault_logo.svg";
 import { getBalanceStart } from "../../state/actions/balance.actions";
 import { getTokenValuesStart } from "../../state/actions/global.actions";
 import { getBoostOptionsStart } from "../../state/actions/staking.actions";
-
-const Wrapper = styled.div`
-  display: flex;
-  width: 27.5rem;
-  flex-direction: column;
-  margin: 0 auto;
-`;
-
-const ButtonWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: 0.625rem;
-`;
 
 const StakingContainer = ({ isStake, name }) => {
   const dispatch = useDispatch();
@@ -64,7 +50,7 @@ const StakingContainer = ({ isStake, name }) => {
         : "0.00";
 
     return (
-      <Wrapper>
+      <>
         <H6Header>
           {isStake ? `Select your boost power` : `Selected Boost power`}
         </H6Header>
@@ -85,11 +71,11 @@ const StakingContainer = ({ isStake, name }) => {
           options={options}
         />
         <TimerComponent />
-        <ButtonWrapper>
+        <div id="button-wrapper">
           <Button disabled>Claim</Button>
           <Button onClick={handleSubmit}>Stake</Button>
-        </ButtonWrapper>
-      </Wrapper>
+        </div>
+      </>
     );
   } else {
     return <H6Header>Loading...</H6Header>;
