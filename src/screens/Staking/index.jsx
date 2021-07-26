@@ -2,9 +2,9 @@ import React from "react";
 import { H3Header, RegularText } from "../../components/basic/Text";
 import TabMenu from "../../components/basic/Tabs";
 import Layout from "../../components/basic/Layout";
-import StakeComponent from "../../components/StakeComponent";
+import StakingContainer from "../../containers/StakingContainer";
 
-const StakeContainer = ({ name = "REVA" }) => {
+const Staking = ({ name = "REVA" }) => {
   return (
     <Layout>
       <H3Header>Lock {name} to Boost Rewards</H3Header>
@@ -13,10 +13,13 @@ const StakeContainer = ({ name = "REVA" }) => {
       </RegularText>
       <TabMenu
         tabGroup={["Stake", "Unstake"]}
-        panelGroup={[<StakeComponent isStake />, <StakeComponent />]}
+        panelGroup={[
+          <StakingContainer name={name} isStake />,
+          <StakingContainer name={name} />,
+        ]}
       />
     </Layout>
   );
 };
 
-export default StakeContainer;
+export default Staking;

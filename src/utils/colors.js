@@ -1,5 +1,5 @@
 export const OFF_WHITE = "#FCFCFC";
-export const BORDER_INACTIVE = "rgba(61, 0, 162, 0.4)";
+export const BORDER_INACTIVE = "rgba(61, 0, 162, 0.75)";
 export const PANEL_DARK = "#171A30";
 export const PROGRESS_BAR = "#0A0C18";
 
@@ -17,3 +17,8 @@ export const GRAYSCALE_LINE = "#D9DDE9";
 
 //Disabled
 export const BUTTON_DISABLED = "#09090E";
+
+// Error
+export const ERROR_DEFAULT = "#ED2E7E";
+export const ERROR_BORDER = "#C30052";
+export const ERROR_BACKGROUND = "rgba(195, 0, 82, 0.1)";

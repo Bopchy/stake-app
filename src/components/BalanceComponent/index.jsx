@@ -1,34 +1,66 @@
 import React from "react";
-import styled from "styled-components";
-import TokenWrapper from "./TokenWrapper";
-import StakeBalance from "./StakeBalance";
+import { RegularText } from "../basic/Text";
+import TokenWrapper from "../TokenWrapper";
+import getCurrencySymbol from "../../utils/helpers";
+import {
+  Wrapper,
+  BalanceWrapper,
+  Header,
+  Input,
+  UnstakeOptions,
+  Button,
+} from "./styles";
 
-// Images
-import RevaultLogo from "../../assets/images/Revault_logo.png"; // to be retrived via API
-
-const Wrapper = styled.div`
-  width: 100%;
-  height: 6.875rem;
-  display: flex;
-  margin-bottom: 2.1875rem;
-  box-sizing: border-box;
-`;
-
-const BalanceComponent = ({
+const StakeBalance = ({
   isStake,
-  tokenImage = RevaultLogo,
-  name = "REVA",
+  name,
+  balanceAmount,
+  tokenImage,
+  currency = "USD",
+  stakedAmount,
+  onChange,
+  pricePerToken,
 }) => {
+  const unstakePercentages = [10, 25, 50, 75, 100];
+  const errorClass = stakedAmount > balanceAmount ? "error" : "";
+  const stakedAmountCashValue = balanceAmount * pricePerToken;
+
   return (
-    <Wrapper>
+    <Wrapper className={errorClass}>
       <TokenWrapper
         action={isStake ? "Stake" : "UnStake"}
         tokenImage={tokenImage}
         name={name}
       />
-      <StakeBalance isStake={isStake} name={name} />
+      <BalanceWrapper id="balance-wrapper">
+        {isStake ? (
+          <Header>
+            <span className="action">GET</span>
+            <span className="balance">
+              {name} Balance: {balanceAmount}
+            </span>
+          </Header>
+        ) : (
+          <UnstakeOptions>
+            {unstakePercentages.map((percentage) => (
+              <Button>{percentage}%</Button>
+            ))}
+          </UnstakeOptions>
+        )}
+        <Input
+          type="text"
+          name="stake-amount"
+          value={stakedAmount}
+          onChange={onChange}
+          placeholder="0.00"
+        />
+        <RegularText className="stakeAmount">
+          {getCurrencySymbol(currency)}
+          {stakedAmountCashValue}
+        </RegularText>
+      </BalanceWrapper>
     </Wrapper>
   );
 };
 
-export default BalanceComponent;
+export default StakeBalance;

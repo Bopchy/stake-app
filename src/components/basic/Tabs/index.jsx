@@ -1,6 +1,6 @@
 import React from "react";
-import { Tabs, TabPanel } from "react-tabs";
-import { TabListComponent, TabComponent } from "./styles";
+import { Tabs } from "react-tabs";
+import { TabListComponent, TabComponent, TabPanelComponent } from "./styles";
 
 const TabMenu = ({ tabGroup, panelGroup }) => {
   // Panels are rendered according to their index in panelGroup
@@ -12,7 +12,7 @@ const TabMenu = ({ tabGroup, panelGroup }) => {
         ))}
       </TabListComponent>
       {panelGroup.map((panel, index) => (
-        <TabPanel key={index}>{panel}</TabPanel>
+        <TabPanelComponent key={index}>{panel}</TabPanelComponent>
       ))}
     </Tabs>
   );
