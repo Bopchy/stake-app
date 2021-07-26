@@ -73,7 +73,12 @@ const StakingContainer = ({ isStake, name }) => {
         <TimerComponent />
         <div id="button-wrapper">
           <Button disabled>Claim</Button>
-          <Button onClick={handleSubmit}>Stake</Button>
+          <Button
+            onClick={handleSubmit}
+            disabled={stakedAmount > balanceAmount}
+          >
+            Stake
+          </Button>
         </div>
       </>
     );
