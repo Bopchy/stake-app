@@ -1,5 +1,3 @@
-// GETBALANCESTART, GETBALANCE, GETBALANCEERR
-
 export const getBalanceStart = () => ({
   type: "GET_BALANCE_START",
 });
