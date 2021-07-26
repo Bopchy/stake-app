@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import styled, { css } from "styled-components/macro";
 import { buttonBase } from "../../components/basic/Button/styles";
 import { PRIMARY_DARK, BORDER_INACTIVE, OFF_WHITE } from "../../utils/colors";

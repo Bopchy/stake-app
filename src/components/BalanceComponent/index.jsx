@@ -43,7 +43,7 @@ const StakeBalance = ({
         ) : (
           <UnstakeOptions>
             {unstakePercentages.map((percentage) => (
-              <Button>{percentage}%</Button>
+              <Button key={percentage}>{percentage}%</Button>
             ))}
           </UnstakeOptions>
         )}
